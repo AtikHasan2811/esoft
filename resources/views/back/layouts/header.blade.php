@@ -8,8 +8,8 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link"> Home </a>
       </li>
-      
- 
+
+
     </ul>
     {{-- <div class="btn-group " style="float-right">
       <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,9 +23,9 @@
         <a class="dropdown-item" href="#">Separated link</a>
       </div>
     </div> --}}
-    
 
-    
+
+
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -42,15 +42,15 @@
         </span>
           <div class="dropdown-divider"></div>
         <a href="{{route('adminLogout')}}" class="dropdown-item">
-            <i class="fas ion-log-out mr-2"></i>Logout
+            <i class="fas fa-sign-out-alt"></i> Logout
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="{{route('editProfile')}}" class="dropdown-item">
             <i class="fas fa-user mr-2"></i> Profile
-           
+
           </a>
-         
-          
+
+
         </div>
       </li>
       <!-- Notifications Dropdown Menu -->

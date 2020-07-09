@@ -1,5 +1,4 @@
 @extends('back.adminMaster')
-
 @section('content')
 <section class="content-header">
     <div class="container-fluid">

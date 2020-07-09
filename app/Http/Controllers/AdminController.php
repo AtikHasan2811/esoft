@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Admin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Redirect;
 class AdminController extends Controller
 {
     public function adminLogin(){
-        
+
         return view('back.pages.admin.adminLogin');
     }
 
@@ -24,14 +25,14 @@ class AdminController extends Controller
         $password = $request->password;
 
         if($query){
-  
+
             if (Hash::check($password, $query->password)) {
                 Session::put('adminLogin',TRUE);
                 Session::put('name',$query->name);
                 Session::put('email',$query->email);
                 Session::put('status',$query->status);
                // Session::flash('message', 'Login Successfully!!');
-               
+
                     if(Auth::guard('admin')->attempt(['email' => $email, 'password' => $password]))
                     {
                         if( $query->role==0){
@@ -47,12 +48,17 @@ class AdminController extends Controller
                             return redirect()->route('allContacts');
 
                         }
+                        else if($query->role==99){
+                            Session::flash('message', 'Authenticating Login Successfull');
+                            return redirect()->route('dashboard');
+
+                        }
 
                         else{
                             return redirect()->route('dashboard');
 
                         }
-                        
+
                     }
                         else{
                             Session::flash('message', 'Authorization not found');
@@ -78,7 +84,7 @@ class AdminController extends Controller
         Session::put('email',NULL);
         Session::put('status',NULL);
         Session::flash('message', 'Log out Successfully');
-        
+
         return redirect()->route('adminLogin');
     }
 
@@ -102,20 +108,20 @@ class AdminController extends Controller
         $password = $data['password']= Hash::make($request->password);
         $conform_password = $request->conform_password;
         $data['status']=0;
-        $data['role']=0;
+        $data['role']=99;
         $data['created_at']= date("Y-m-d H:i:s",$time);
-        
+
         if (Hash::check($conform_password, $password)) {
             $result= DB::table('admins')->insert($data);
                 if($result==TRUE){
                     Session::flash('message','Registration Successfull!!!');
                     return redirect()->route('adminLogin');
-                
+
                 }else{
                     Session::flash('message','Data is not inserted');
                     return redirect()->route('adminRegister');
                 }
-        
+
 
         }else{
             Session::flash('message','Password Doses not Match');
@@ -123,6 +129,46 @@ class AdminController extends Controller
         }
     }
     }
+    public function changeAdminParmission(Request $request){
+        $id= $request->admin_id;
+        $adminRole =Auth::guard('admin')->user()->role;
+        if($adminRole==0){
+            $data = Admin::find($id);
+            $data->role =$request->role;
+            $data->save();
+            return redirect()->route('dashboard');
 
-   
+          }
+        else if( $adminRole==0){
+            Session::flash('message', 'You are not permited for this option');
+            return redirect()->route('dashboard');
+
+        }else if($adminRole==2){
+            Session::flash('message', 'You are not permited for this option');
+            return redirect()->route('auditorDashboard');
+
+        }else if($adminRole==3){
+            Session::flash('message', 'You are not permited for this option');
+            return redirect()->route('allContacts');
+
+        }else{
+            return redirect()->route('dashboard');
+        }
+
+    }
+
+
+      public function deleteAdmin($id){
+        $adminData = Admin::find($id);
+        $adminData->delete();
+        return redirect::to('/dashboard/viewAdmins');
+      }
+
+      public function editProfile(){
+          $adminId =Auth::guard('admin')->user()->id;
+          $data =Admin::find($adminId);
+          return view('back.pages.admin.adminProfile');
+
+      }
+
 }

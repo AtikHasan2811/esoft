@@ -10,6 +10,7 @@ use App\Report;
 use Dompdf\Adapter\PDFLib;
 use PDF;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
@@ -58,7 +59,7 @@ class AuditReportController extends Controller
         $data['evidence_id']=json_encode($request->evidence_id);
         $data['description']=json_encode( $request->description);
         $data['status']= 1;
-        $data['created_by']= "Auditor Name";
+        $data['created_by']= Auth::guard('admin')->user()->id;
         $data['created_at']= date("Y-m-d H:i:s",$time);
 
         $query = DB::table('reports')->insert($data);

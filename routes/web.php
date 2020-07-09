@@ -21,10 +21,13 @@ Route::get('/adminRegister','AdminController@adminRegister')->name('adminRegiste
 Route::post('/registerAdmin','AdminController@registerAdmin')->name('registerAdmin');
 Route::get('/adminLogout','AdminController@adminLogout')->name('adminLogout');
 Route::post('/loginCheck','AdminController@loginCheck')->name('loginCheck');
+Route::get('/dashboard/deleteAdmin/{id}','AdminController@deleteAdmin')->name('deleteAdmin');
+Route::post('/dashboard/changeAdminParmission','AdminController@changeAdminParmission')->name('changeAdminParmission');
+Route::get('/dashboard/editProfile','AdminController@editProfile')->name('editProfile');
 
 Route::get('/dashboard/viewAdmins','DashboardController@viewAdmins')->name('viewAdmins');
 Route::get('/dashboard/editAdmin/{id}','DashboardController@editAdmin')->name('editAdmin');
-Route::get('/dashboard/deleteAdmin/{id}','DashboardController@deleteAdmin')->name('deleteAdmin');
+//Route::get('/dashboard/deleteAdmin/{id}','DashboardController@deleteAdmin')->name('deleteAdmin');
 
 
 Route::get('/index', function () {

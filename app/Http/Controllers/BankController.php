@@ -10,7 +10,7 @@ class BankController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('contact');
     }
 
 
@@ -62,7 +62,7 @@ class BankController extends Controller
         $data=array();
         $query=$data['result']=DB::table('banks')->where('id',$id)->first();
         if($query){
-          
+
             return view('back.pages.bank.editBank',$data);
         }
 

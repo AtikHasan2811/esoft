@@ -16,9 +16,9 @@ class CreateReportsTable extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->Increments('id');
             $table->integer('company_id')->unsigned();
-            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+//            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->integer('certificate_id')->unsigned();
-            $table->foreign('certificate_id')->references('id')->on('certificates')->onDelete('cascade');
+//            $table->foreign('certificate_id')->references('id')->on('certificates')->onDelete('cascade');
             $table->integer('stage')->nullable();
             $table->string('question_id')->nullable();
             $table->text('status_id')->nullable();

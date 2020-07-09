@@ -277,6 +277,13 @@ var st1 = $("#st1").val();
 var st2 = $("#st2").val();
 var st3 = $("#st3").val();
 
+var data = JSON({{$result->status_id}});
+$(data).each(function(i,val){
+    $.each(val, function(key,val){
+        console.log(key + ":" + val);
+    })
+})
+
 
 
 

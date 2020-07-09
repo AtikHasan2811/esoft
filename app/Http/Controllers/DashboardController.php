@@ -13,14 +13,14 @@ class DashboardController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('contact');
     }
 
 
 
     public function dashboard(){
         $data = array();
-        $data['title']=""; 
+        $data['title']="";
         return view('back.pages.dashboard',$data);
     }
 
@@ -32,12 +32,12 @@ class DashboardController extends Controller
         $data = array();
         $data['title']="Admin Views";
         $data['results']=DB::table('admins')->get();
-       
+
         return view('back.pages.admin.viewAdmins',$data);
 
     }
  public function editAdmin($id){
-     
+
 
     }
 }

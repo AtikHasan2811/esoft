@@ -9,7 +9,7 @@ class BankerController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('contact');
     }
     public function addBanker(){
         $data = array();
@@ -86,7 +86,7 @@ class BankerController extends Controller
         if($searchBy==1){
             $name = $request->name;
             $data= array();
-        
+
             $query=DB::table('banks')->where('name', $name)->first();
             if($query){
                 $data['results']=DB::table('bankers')->where('bank_id', $query->id)->get();
@@ -96,7 +96,7 @@ class BankerController extends Controller
                 return view('back.pages.banker.viewBanker',$data);
 
             }
-            
+
 
         }elseif($searchBy==2){
             $name = $request->name;
