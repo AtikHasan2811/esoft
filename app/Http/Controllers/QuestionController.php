@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -14,13 +15,16 @@ class QuestionController extends Controller
     }
     public function addQuestion()
     {
-        return view('back.pages.question.addQuestion');
+        $certificateData = Certificate::all();
+        return view('back.pages.question.addQuestion',compact('certificateData'));
     }
 
     public function insertQuestion(Request $request)
     {
         $questionData=new Question();
         $questionData->question = $request->question;
+        $questionData->certificate_id = $request->certificate_id;
+        $questionData->stage = $request->stage;
         if(isset($request->status)){
             $questionData->status = true;
         }else{
@@ -29,7 +33,7 @@ class QuestionController extends Controller
         $questionData->save();
         Session::flash('message','Question Insert Successful!!!');
         return redirect()->to('dashboard/viewQuestion');
-     }
+    }
 
     public function viewQuestion()
     {

@@ -1,4 +1,5 @@
 @extends('back.adminMaster')
+@section('title','Dashboard')
 
 @section('content')
 
@@ -9,7 +10,7 @@
           <h1 class="m-0 text-dark">Dashboard</h1>
           @if (Session::get('message'))
         <p class="text-success">{{Session::get('message')}}</p>
-              
+
           @endif
         </div><!-- /.col -->
         <div class="col-sm-6">
@@ -23,85 +24,92 @@
 </div>
   <!-- /.content-header -->
 
-  <!-- Main content -->
-  <section class="content">
-    <div class="container-fluid">
-      <!-- Small boxes (Stat box) -->
+    <!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <!-- Small boxes (Stat box) -->
+      {{-- <div class="row">
+          <div class="col-sm-12">
+          <a class="btn btn-info" href="{{route('viewReport')}}">Audit List</a>
+              <a class="btn btn-warning" href="{{ route('viewConpany') }}">Company</a>
+              <a class="btn btn-success" href="{{ route('viewQuestion') }}">Question List</a>
+              <a class="btn btn-success" href="{{ route('viewCertificate') }}">Certificate List</a>
+          </div>
+      </div> --}}
       <div class="row">
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-info">
-            <div class="inner">
-              <h3>150</h3>
+          <div class="col-12 col-sm-6 col-md-3">
+              <a href="{{route('viewAdmins')}}">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-list"></i></span>
 
-              <p>New Orders</p>
+              <div class="info-box-content">
+                <span class="info-box-text">Total Admins</span>
+                <span class="info-box-number">
+                  {{$admins}}
+
+                </span>
+              </div>
+              <!-- /.info-box-content -->
             </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <!-- /.info-box -->
+          </a>
           </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-success">
-            <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+              <a href="{{ route('viewBanker') }}">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-briefcase"></i></span>
 
-              <p>Bounce Rate</p>
+              <div class="info-box-content">
+                <span class="info-box-text">Bankers</span>
+              <span class="info-box-number">{{$bankers}}</span>
+              </div>
+              <!-- /.info-box-content -->
             </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <!-- /.info-box -->
+          </a>
           </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-warning">
-            <div class="inner">
-              <h3>44</h3>
+          <!-- /.col -->
 
-              <p>User Registrations</p>
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
+          <a href="{{ route('auditlist') }}">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-question"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Auditors</span>
+              <span class="info-box-number">{{$auditors}}</span>
+              </div>
+              <!-- /.info-box-content -->
             </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <!-- /.info-box -->
+          </a>
           </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-danger">
-            <div class="inner">
-              <h3>65</h3>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+              <a href="{{ route('employeelist') }}">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-certificate"></i></span>
 
-              <p>Unique Visitors</p>
+              <div class="info-box-content">
+                <span class="info-box-text">Employees</span>
+              <span class="info-box-number">{{$employees}}</span>
+              </div>
+              <!-- /.info-box-content -->
             </div>
-            <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <!-- /.info-box -->
+          </a>
+
           </div>
+          <!-- /.col -->
         </div>
-        <!-- ./col -->
-      </div>
-      <!-- /.row -->
-      <!-- Main row -->
-      <div class="row">
-        <!-- Left col -->
-      
-        <!-- /.Left col -->
-        <!-- right col (We are only adding the ID to make the widgets sortable)-->
-      
-        <!-- right col -->
-      </div>
-      <!-- /.row (main row) -->
-    </div><!-- /.container-fluid -->
-  </section>
 
-      
+
+
+  </div>
+</section>
+
+
 @endsection

@@ -2,8 +2,11 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>E-Tex Soft | Dashboard</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+{{--  <title>E-Tex Soft | Dashboard</title>--}}
+    <title>@yield('title')  {{ config('app.name', 'E-Soft') }}</title>
+{{--    <link rel="shortcut icon" type="image/x-icon" href="img/m.png">--}}
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('public/image/e-soft2.png')}}" />
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -24,6 +27,7 @@
   <link rel="stylesheet" href="{{asset('public/back/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('public/back/plugins/summernote/summernote-bs4.css')}}">
+
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -40,7 +44,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     @yield('content')
-    
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->

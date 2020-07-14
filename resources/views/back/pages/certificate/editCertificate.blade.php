@@ -1,4 +1,5 @@
 @extends('back.adminMaster')
+@section('title','Edit Certificate')
 @section('content')
     <section class="content-header">
         <div class="container-fluid">

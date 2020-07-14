@@ -22,8 +22,8 @@ class CreateAdminsTable extends Migration
             $table->string('mobile')->nullable();
             $table->integer('role')->nullable();
             $table->integer('status')->nullable();
-            $table->string('image')->nullable();
             $table->string('designation')->nullable();
+            $table->string('image')->default('default.png');
             $table->rememberToken();
             $table->timestamps();
         });

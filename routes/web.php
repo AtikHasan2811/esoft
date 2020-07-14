@@ -16,18 +16,31 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 //Admin Coontroller
+//Route::get('/adminLogin','AdminController@adminLogin')->name('adminLogin');
+//Route::get('/adminRegister','AdminController@adminRegister')->name('adminRegister');
+//Route::post('/registerAdmin','AdminController@registerAdmin')->name('registerAdmin');
+//Route::get('/adminLogout','AdminController@adminLogout')->name('adminLogout');
+//Route::post('/loginCheck','AdminController@loginCheck')->name('loginCheck');
+//Route::get('/dashboard/deleteAdmin/{id}','AdminController@deleteAdmin')->name('deleteAdmin');
+Route::post('/dashboard/changeAdminParmission','AdminController@changeAdminParmission')->name('changeAdminParmission');
+//Route::post('/dashboard/updateProfile/{id}','AdminController@updateProfile')->name('updateProfile ');
+//
+//Route::get('/dashboard/viewAdmins','DashboardController@viewAdmins')->name('viewAdmins');
+//Route::get('/dashboard/editAdmin/{id}','DashboardController@editAdmin')->name('editAdmin');
+////Route::get('/dashboard/deleteAdmin/{id}','DashboardController@deleteAdmin')->name('deleteAdmin');
+
 Route::get('/adminLogin','AdminController@adminLogin')->name('adminLogin');
 Route::get('/adminRegister','AdminController@adminRegister')->name('adminRegister');
 Route::post('/registerAdmin','AdminController@registerAdmin')->name('registerAdmin');
 Route::get('/adminLogout','AdminController@adminLogout')->name('adminLogout');
 Route::post('/loginCheck','AdminController@loginCheck')->name('loginCheck');
-Route::get('/dashboard/deleteAdmin/{id}','AdminController@deleteAdmin')->name('deleteAdmin');
-Route::post('/dashboard/changeAdminParmission','AdminController@changeAdminParmission')->name('changeAdminParmission');
-Route::get('/dashboard/editProfile','AdminController@editProfile')->name('editProfile');
+Route::get('/dashboard/editAdmin/{id}','AdminController@editAdmin')->name('editAdmin');
+Route::post('/dashboard/updateProfile/{id}','AdminController@updateProfile')->name('updateProfile');
+
 
 Route::get('/dashboard/viewAdmins','DashboardController@viewAdmins')->name('viewAdmins');
-Route::get('/dashboard/editAdmin/{id}','DashboardController@editAdmin')->name('editAdmin');
-//Route::get('/dashboard/deleteAdmin/{id}','DashboardController@deleteAdmin')->name('deleteAdmin');
+
+Route::get('/dashboard/deleteAdmin/{id}','DashboardController@deleteAdmin')->name('deleteAdmin');
 
 
 Route::get('/index', function () {
@@ -109,10 +122,19 @@ Route::get('/dashboard/viewReportDetails/{id}','AuditReportController@viewReport
 Route::get('/dashboard/generatePdf/{id}','AuditReportController@generatePdf')->name('generatePdf');
 Route::get('/dashboard/editReport/{id}','AuditReportController@editReport')->name('editReport');
 Route::get('/auditordashboard','AuditReportController@auditorDashboard')->name('auditorDashboard');
+Route::get('/reportStatus/{id}','AuditReportController@reportStatus')->name('reportStatus');
+
+
+
+Route::get('/search', 'LiveSearch@autocomplete')->name('search');
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/autocomplete/fetch', 'LiveSearch@fetch')->name('autocomplete.fetch');
+Route::get('/search', 'LiveSearch@search')->name('search');
 
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
 
 

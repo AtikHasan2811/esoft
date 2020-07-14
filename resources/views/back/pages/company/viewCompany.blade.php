@@ -1,4 +1,5 @@
 @extends('back.adminMaster')
+@section('title','View Company')
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
@@ -51,8 +52,8 @@
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Mobile</th>
-                        <th>Hot Line</th>
-                        <th>Descripton</th>
+                       
+                      
                         <th>Status</th>
                         <th>Action</th>
 
@@ -68,19 +69,19 @@
                             <td>{{$company->email}} </td>
                             <td>{{$company->phone}} </td>
                             <td>{{$company->mobile}} </td>
-                            <td>{{$company->hotline}} </td>
-                            <td>{{$company->description}} </td>
+                            {{-- <td>{{$company->hotline}} </td> --}}
+                            {{-- <td>{{$company->description}} </td> --}}
                             <td>
                                 @if($company->status == true)
-                                    <span class="btn btn-success">Published</span>
+                                    <span class="badge badge-success">Published</span>
                                 @else
-                                    <span class="btn btn-danger">Pending</span>
+                                    <span class="badge badge-warning">Pending</span>
                                 @endif
 
                             </td>
                             <td>
-                             <a href="{{route('editCompany',$company->id)}}" class="btn btn-success">Edit</a>
-                             <a  class="btn btn-danger" href="{{route('deleteCompany',$company->id)}}">Delete</a>
+                             <a href="{{route('editCompany',$company->id)}}" class="badge badge-info">Edit</a>
+                             <a  class="badge badge-danger" href="{{route('deleteCompany',$company->id)}}">Delete</a>
                              </td>
 
                         </tr>
@@ -107,8 +108,7 @@
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Mobile</th>
-                            <th>Hot Line</th>
-                            <th>Descripton</th>
+                         
                             <th>Status</th>
                             <th>Action</th>
                         </tr>

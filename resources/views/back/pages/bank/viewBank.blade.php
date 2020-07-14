@@ -72,7 +72,7 @@
                             <td>{{$result->mobile}}  </td>
                             <td>{{$result->hotline}} </td>
                             <td>
-                            <a href="{{route('editBank',$result->id)}}">Edit</a>
+                            <a class=" badge bg-info" href="{{route('editBank',$result->id)}}">Edit</a>
                                 <a  onclick="return confirm('Are you sure?')" class=" badge bg-danger" href="{{route('deleteBank',$result->id)}}">Delete</a>
                              </td>
 

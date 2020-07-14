@@ -9,7 +9,7 @@ class auditController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auditor');
+        $this->middleware('contact');
     }
 
     public function index(){

@@ -1,5 +1,5 @@
 @extends('back.adminMaster')
-@section('content')
+@section('title','Edit Employee')
     <div class="container mt-5">
         <div class="card card-primary">
             <div class="card-header">

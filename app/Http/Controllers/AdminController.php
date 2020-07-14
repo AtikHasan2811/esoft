@@ -171,4 +171,30 @@ class AdminController extends Controller
 
       }
 
+    public function editAdmin($id){
+        $data = Admin::find($id);
+//        return $data;
+        return view('back.pages.admin.editAdmin',compact('data'));
+    }
+
+    public function updateProfile(Request $request,$id){
+       $adminInfo = Admin::find($id);
+            $hashedPassword = $adminInfo->password;
+        if (Hash::check($request->old_password,$hashedPassword))
+        {
+            $adminInfo->name = $request->name;
+            $adminInfo->email = $request->email;
+            $adminInfo->password =Hash::make($request->new_password);
+            $adminInfo->save();
+            Session::flash('message', 'Profile Update Success');
+            return redirect()->back();
+        } else {
+            Session::flash('message', 'Old password not Match');
+            return redirect()->back();
+
+        }
+
+
+    }
+
 }

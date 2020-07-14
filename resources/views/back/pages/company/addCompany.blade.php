@@ -1,4 +1,5 @@
 @extends('back.adminMaster')
+@section('title','Add Company')
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
@@ -68,6 +69,14 @@
                       <div class="form-group">
                           <label for="exampleInputEmail1">Description</label>
                           <textarea class="form-control" name="description" rows="3" placeholder="Enter Description "></textarea>
+                      </div>
+                      <div class="form-group">
+                          <label for="exampleInputEmail1">Select Certificate </label>
+                          <Select required name="stage" class="form-control">
+                              <option value="">--Select Stage--</option>
+                              <option value="1">Stage One</option>
+                              <option value="2">Stage Two</option>
+                          </Select>
                       </div>
 
 

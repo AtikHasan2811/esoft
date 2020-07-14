@@ -1,4 +1,5 @@
 @extends('back.adminMaster')
+@section('title','Create Audit')
 @section('content')
     <div class="container mt-5">
         <div class="card card-primary">

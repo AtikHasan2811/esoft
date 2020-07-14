@@ -1,4 +1,5 @@
 @extends('back.adminMaster')
+@section('title','All Contucts')
 
 @section('content')
 

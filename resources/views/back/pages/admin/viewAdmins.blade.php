@@ -1,4 +1,5 @@
 @extends('back.adminMaster')
+@section('title','View Admin')
 
 @section('content')
 {{--......................................model.....................................--}}
@@ -7,7 +8,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Select Admin Role</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -16,20 +17,28 @@
                     <p id="adminName"></p>
                     <form action="{{route('changeAdminParmission')}}" method="POST">
                         @csrf
-                        <input type="hidden" id="admin_id" name="admin_id" value="">
-                        <label for="">Select Role  :  </label>
-                        <select name="role" id="">
-                            <option value="99">--Select--</option>
+                        <div class="form-group">
+                            <input type="hidden" id="admin_id" name="admin_id" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Select Role  :  </label>
+
+                        <select class="form-control" name="role" id="">
+                            <option value="99"> <--Select--> </option>
                             <option value="2">Auditor</option>
-                            <option value="3">Contacts</option>
+                            <option value="3">Administration</option>
                         </select>
+
+                        </div>
+                        
+                        
                         <button class="btn btn-success" type="submit">Submit</button>
                     </form>
                 </div>
-                <div class="modal-footer">
+                {{-- <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -90,33 +99,30 @@
                                             <td> {{$result->email}} </td>
                                             <td>
                                                 @if($result->role ==2 )
-                                                    <button type="button" class="badge badge-success adminID"
+                                                    <button type="button" class="badge badge-info adminID"
                                                             data-toggle="modal" data-target="#exampleModal"
                                                             data-id="{{$result->id }}" data-name="{{ $result->name}}">
                                                         Auditor
                                                     </button>
                                                 @elseif($result->role ==0)
-                                                    <button type="button" class="badge badge-success adminID"
-                                                            data-toggle="modal" data-target="#exampleModal"
-                                                            data-id="{{$result->id }}" data-name="{{ $result->name}}">
-                                                        Super Admin
-                                                    </button>
+                                                <p class="badge badge-success">Super Admin</p>
+                                                   
                                                 @elseif($result->role ==3)
-                                                    <button type="button" class="badge badge-success adminID"
+                                                    <button type="button" class="badge badge-secondary adminID"
                                                             data-toggle="modal" data-target="#exampleModal"
                                                             data-id="{{$result->id }}" data-name="{{ $result->name}}">
-                                                        Contact
+                                                        Administraion
                                                     </button>
                                                 @elseif($result->role == 1)
 
-                                                    <button type="button" class="badge badge-success adminID"
+                                                    <button type="button" class="badge badge-danger adminID"
                                                             data-toggle="modal" data-target="#exampleModal"
                                                             data-id="{{$result->id }}" data-name="{{ $result->name}}">
                                                         New admin
                                                     </button>
                                                 @else
 
-                                                    <button type="button" class="badge badge-success adminID"
+                                                    <button type="button" class="badge badge-danger adminID"
                                                             data-toggle="modal" data-target="#exampleModal"
                                                             data-id="{{$result->id }}" data-name="{{ $result->name}}">
                                                         Inactive

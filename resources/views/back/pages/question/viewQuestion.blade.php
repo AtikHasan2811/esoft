@@ -1,4 +1,5 @@
 @extends('back.adminMaster')
+@section('title','View Question')
 
 @section('content')
 <section class="content-header">

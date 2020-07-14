@@ -10,4 +10,9 @@ class Certificate extends Model
     {
         return $this->hasMany('App\Report');
     }
+//    public function questions()
+//    {
+//        return $this->hasMany('App\Question');
+//    }
+
 }

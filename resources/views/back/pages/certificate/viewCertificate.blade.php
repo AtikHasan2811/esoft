@@ -1,4 +1,5 @@
 @extends('back.adminMaster')
+@section('title','View Certificate')
 
 @section('content')
     <section class="content-header">
@@ -64,15 +65,15 @@
                                         <td>{{$Certificate->description}} </td>
                                         <td>
                                             @if($Certificate->status == true)
-                                                <span class="btn btn-success">Published</span>
+                                                <span class="badge badge-success">Published</span>
                                             @else
-                                                <span class="btn btn-danger">Pending</span>
+                                                <span class="badge badge-warning">Pending</span>
                                             @endif
 
                                         </td>
                                         <td>
-                                             <a href="{{route('editCertificate',$Certificate->id)}}" class="btn btn-success">Edit</a>
-                                             <a  class="btn btn-danger" href="{{route('deleteCertificate',$Certificate->id)}}">Delete</a>
+                                             <a href="{{route('editCertificate',$Certificate->id)}}" class="badge badge-success">Edit</a>
+                                             <a  class="badge badge-danger" href="{{route('deleteCertificate',$Certificate->id)}}">Delete</a>
                                         </td>
 
                                     </tr>

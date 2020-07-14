@@ -1,4 +1,5 @@
 @extends('back.adminMaster')
+@section('title','Add Banker')
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
@@ -36,15 +37,15 @@
                         <Select class="form-control" id="" name="bank_id">
                             <option value="">--Select Bank--</option>
                             @if ($results)
-                           
+
                             @foreach ($results as $result)
                         <option value="{{$result->id}}">{{$result->name}}</option>
 
                             @endforeach
-                                 
+
                             @endif
                         </Select>
-                        
+
                       </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Banker Name</label>
@@ -70,26 +71,26 @@
                         <label for="exampleInputEmail1">Phone</label>
                         <input type="text" name="phone" class="form-control" id="exampleInputEmail1" placeholder="Enter mobile">
                       </div>
-    
+
                     <div class="form-group">
                         <label>Details/Description</label>
                         <textarea class="form-control" name="description" rows="3" placeholder="Enter ..."></textarea>
                       </div>
-                                      
+
                   </div>
                   <!-- /.card-body -->
-  
+
                   <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
                 </form>
               </div>
               <!-- /.card -->
-  
+
             </div>
         </div>
     </div>
 
  </section>
-    
+
 @endsection

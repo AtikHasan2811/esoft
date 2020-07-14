@@ -1,4 +1,5 @@
 @extends('back.adminMaster')
+@section('title','Admin Profile')
 @section('content')
     <section class="content-header">
         <div class="container-fluid">

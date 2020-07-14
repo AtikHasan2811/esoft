@@ -1,4 +1,5 @@
 @extends('back.adminMaster')
+@section('title','Add Bank')
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
@@ -59,21 +60,21 @@
                         <label>Details/Description</label>
                         <textarea class="form-control" name="description" rows="3" placeholder="Enter ..."></textarea>
                       </div>
-                                      
+
                   </div>
                   <!-- /.card-body -->
-  
+
                   <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
                 </form>
               </div>
               <!-- /.card -->
-  
+
             </div>
         </div>
     </div>
 
  </section>
-    
+
 @endsection

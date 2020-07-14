@@ -147,7 +147,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-               Audit
+               Auditor
                 <i class="fas fa-angle-left right"></i> 
                 {{-- <span class="badge badge-info right">6</span> --}}
                </p>
@@ -156,13 +156,13 @@
               <li class="nav-item">
                   <a href="{{ route('auditCreate') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Audit</p>
+                  <p>Add Auditor</p>
                 </a>
               </li>
               <li class="nav-item">
                   <a href="{{ route('auditlist') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Audit List</p>
+                  <p>Auditor List</p>
                 </a>
               </li>
             </ul>

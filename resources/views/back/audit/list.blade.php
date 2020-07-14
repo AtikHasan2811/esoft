@@ -1,4 +1,5 @@
 @extends('back.adminMaster')
+@section('title','View Audit')
 @section('content')
     <section class="content p-3">
         <div class="container-fluid">
@@ -27,8 +28,8 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Company Name</th>
-                        <th>Audit Name</th>
+                        <!-- <th>Company Name</th> -->
+                        <th>Auditor Name</th>
                         <th>Designation</th>
                         <th>Phone</th>
                         <th>Address</th>
@@ -42,7 +43,7 @@
                     @foreach($auditData as $key=>$audit)
                         <tr >
                             <td>{{$key+1}}</td>
-                            <td>{{$audit->companyname}}</td>
+                            <!-- <td>{{$audit->companyname}}</td> -->
                             <td>{{$audit->auditname}}</td>
                             <td>{{$audit->designation}}</td>
                             <td>{{$audit->phone}}</td>
@@ -50,10 +51,10 @@
                             <td>{{$audit->email}}</td>
                             <td>{{$audit->details}}</td>
                             <td>
-                                <a href="{{route('auditlistedit',['ID'=>$audit->id])}}" class="btn btn-info waves-effect">
+                                <a href="{{route('auditlistedit',['ID'=>$audit->id])}}" class="badge badge-info ">
                                     <i class="material-icons">edit</i>
                                 </a>
-                                <a href="{{route('auditDelete',['ID'=>$audit->id])}}" class="btn btn-danger waves-effect">
+                                <a href="{{route('auditDelete',['ID'=>$audit->id])}}" class="badge badge-danger ">
                                     <i class="material-icons">Delete</i>
                                 </a>
                             </td>
@@ -78,6 +79,6 @@
         </div>
     </div>
 
-    
+
 @endsection
 

@@ -1,4 +1,5 @@
 @extends('back.adminMaster')
+@section('title','Edit Banker')
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
@@ -36,15 +37,15 @@
                         <Select class="form-control" id="bank" name="bank_id">
                             <option value="">--Select Bank--</option>
                             @if ($banks)
-                           
+
                             @foreach ($banks as $bank)
                           <option value="{{$bank->id}}">{{$bank->name}}</option>
 
                             @endforeach
-                                 
+
                             @endif
                         </Select>
-                        
+
                       </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Banker Name</label>
@@ -70,28 +71,28 @@
                         <label for="exampleInputEmail1">Phone</label>
                         <input type="text" name="phone" value="{{$result->phone}}" class="form-control" id="exampleInputEmail1" placeholder="Enter mobile">
                       </div>
-    
+
                     <div class="form-group">
                         <label>Details/Description</label>
                     <textarea class="form-control" name="description" rows="3" placeholder="Enter ...">{{$result->description}}</textarea>
                       </div>
-                                      
+
                   </div>
                   <!-- /.card-body -->
-  
+
                   <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Update</button>
                   </div>
                 </form>
               </div>
               <!-- /.card -->
-  
+
             </div>
         </div>
     </div>
 
  </section>
-    
+
 @endsection
 
 @section('extraJS')
@@ -99,5 +100,5 @@
 
   $('#bank').val({{$result->bank_id}});
 </script>
-    
+
 @endsection

@@ -1,4 +1,5 @@
 @extends('back.adminMaster')
+@section('title','List Employee')
 @section('content')
     <section class="content p-3">
         <div class="container-fluid">
@@ -27,7 +28,7 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Bank Name</th>
+                    {{-- <th>Bank Name</th> --}}
                     <th>Name</th>
                     <th>Designation</th>
                     <th>Phone</th>
@@ -42,7 +43,7 @@
                 @foreach($employeeData as $key=>$employee)
                 <tr >
                     <td>{{$key+1}}</td>
-                    <td>{{$employee->bankname}}</td>
+                    {{-- <td>{{$employee->bankname}}</td> --}}
                     <td>{{$employee->name}}</td>
                     <td>{{$employee->designation}}</td>
                     <td>{{$employee->phone}}</td>
@@ -50,10 +51,10 @@
                     <td>{{$employee->email}}</td>
                     <td>{{$employee->details}}</td>
                     <td>
-                        <a href="{{route('employeelistedit',['ID'=>$employee->id])}}" class="btn btn-info waves-effect">
+                        <a href="{{route('employeelistedit',['ID'=>$employee->id])}}" class="badge badge-info ">
                             <i class="material-icons">edit</i>
                         </a>
-                        <a href="{{route('employeelistDelete',['ID'=>$employee->id])}}" class="btn btn-danger waves-effect">
+                        <a href="{{route('employeelistDelete',['ID'=>$employee->id])}}" class="badge badge-danger ">
                             <i class="material-icons">Delete</i>
                         </a>
                     </td>

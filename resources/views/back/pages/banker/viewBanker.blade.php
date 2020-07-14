@@ -1,4 +1,5 @@
 @extends('back.adminMaster')
+@section('title','View Banker')
 
 @section('content')
 <section class="content p-3">
